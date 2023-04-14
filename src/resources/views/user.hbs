@@ -1,0 +1,107 @@
+<div class="container-info">
+    <div class="tab_profile">
+        <div class="avatar_box">
+            <img src={{this.data.avatar}} alt=""
+                class="avatar_box-img">
+            <div class="name-box">
+                <div class="name-box-username">{{this.data.email}}</div>
+                <div class="name-box-edit">
+                    Sửa hồ sơ
+                </div>
+            </div>
+
+        </div>
+
+        <div class="list_button">
+            <div class="drop_down-list">
+                <div class="drop_down-list-header active-ok">Hồ sơ</div>
+                <div class="drop_down-list-header">Đổi mật khẩu</div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="info_profile">
+        <div class="info_profile-box">
+            <div class="info_profile-box-content">
+                <div class="info_profile-box-content-header">
+                    <h1>Hồ Sơ Của Tôi</h1>
+                    <div class="info_profile-title">Quản lý thông tin hồ sơ để bảo mật tài khoản</div>
+                </div>
+
+            </div>
+            <div class="info_profile-box-detail">
+                <div class="info_profile-box-detail-info">
+                   
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Địa chỉ email</label>
+                            <input id="email" disabled  class="form-control" 
+                                 value="{{this.data.email}}" placeholder="Nhập địa chỉ email">
+                                <span class="form-message"></span>
+                           
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Họ và tên</label>
+                            <input id="fullname"  value="{{this.data.fullname}}"  class="form-control" 
+                                placeholder="Nhập tên đầy đủ">
+                                <span class="form-message"></span>
+                        </div>
+                         <div class="form-group">
+                            <label for="exampleInputPassword1">Số điện thoại</label>
+                            <input id="phonenumber" name="phonenumber" type="text" value="{{this.data.phonenumber}}" class="form-control" 
+                                placeholder="Nhập số điện thoại">
+                                <span class="form-message"></span>
+                        </div>
+                         <div class="form-group">
+                            <label for="exampleInputPassword1">Link ảnh</label>
+                            <input type="text" value="{{this.data.avatar}}" class="form-control" 
+                                placeholder="Password" disabled>
+                        </div>
+                        <button id="submit_data" class="btn btn-primary">Lưu</button>
+
+
+                </div>
+                <div class="info_profile-box-detail-avatar">
+                    <img class="img-vip" src={{this.data.avatar}}
+                        alt="">
+                </div>
+ 
+            </div>
+        </div>
+    </div>
+
+</div>
+ 
+
+<script type="module">
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getFirestore ,doc,updateDoc,addDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+const firebaseConfig = {
+        apiKey: "AIzaSyBUXegiu1MsuNdYB8mM9nbcmxmIOvbExoc",
+        authDomain: "buyandsellproject-753ab.firebaseapp.com",
+        databaseURL: "https://buyandsellproject-753ab-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "buyandsellproject-753ab",
+        storageBucket: "buyandsellproject-753ab.appspot.com",
+        messagingSenderId: "830096715156",
+        appId: "1:830096715156:web:13deb2fdd9edd4f24b3381",
+        measurementId: "G-CV563YDE2P"
+    };
+
+  submit_data.addEventListener('click',(e)=>{
+        const app = initializeApp(firebaseConfig);
+        const db=getFirestore(app)
+    var email=document.getElementById('email').value
+    var phonenumber=document.getElementById('phonenumber').value
+    var fullname=document.getElementById('fullname').value
+
+       updateDoc(doc(db,"Users","LRm1FQNE508Zwfg4FiX0"),{
+         fullname: "Trương Nguyễn Công Chính",
+         phonenumber:phonenumber,
+    })
+    alert("Lưu thông tin thành công")
+
+   })
+
+</script>

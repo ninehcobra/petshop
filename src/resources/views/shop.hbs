@@ -1,0 +1,225 @@
+<div class="app__container">
+    <div class="grid">
+        <div class="grid__row app_content">
+            <div class="grid__column-2">
+                <nav class="category">
+                    <h3 class="category__heading">
+                        <i class="fa-solid fa-list category__heading-icon"></i>
+                        Danh mục
+                    </h3>
+                    <ul class="category-list">
+                        <li class="category-item category-item-active">
+                            <a href="#" class="category-item__link">Thể thao ngoài trời</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">Vận chuyển</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">Nội thất</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">Thực phẩm</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">Thiết bị điện tử</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">Làm đẹp và chăm sóc sức khỏe</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">Dụng cụ gia dụng</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">Đồ chơi</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">Nhu yếu phẩm cho thú cưng</a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-item__link">Nhà bếp và gia đình</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="grid__column-10">
+                <div class="home-filter">
+                    <span class="home-filter__label">Sắp xếp theo</span>
+                    <button class="btn home-filter__btn">Phổ biến</button>
+                    <button class="btn btn--primary home-filter__btn">Mới nhất</button>
+                    <button class="btn home-filter__btn">Bán chạy</button>
+
+                    <div class="select-input">
+                        <span class="select-input__label">Giá</span>
+                        <i class="select-input__icon fa-solid fa-chevron-down"></i>
+                        <ul class="select-input__list">
+                            <li class="select-input__item">
+                                <a href="" class="select-input__link">Giá thấp đến cao</a>
+                            </li>
+                            <li class="select-input__item">
+                                <a href="" class="select-input__link">Giá cao đến thấp</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="home-filter__page">
+                        <span class="home-filter__page-num">
+                            <span class="home-filter__page-current">1</span>
+                            /14
+                        </span>
+
+                        <div class="home-filter__page-control">
+                            <a href="" class="home-filter__page-btn home-filter__page-btn--disable">
+                                <i class="home-filter__page-icon fa-sharp fa-solid fa-angle-left"></i>
+                            </a>
+                            <a href="" class="home-filter__page-btn">
+                                <i class="home-filter__page-icon fa-sharp fa-solid fa-angle-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-product">
+                    <div class="grid__row">
+                        {{#each data}}
+
+                        <div class="grid__column-2-4">
+                            <a class="home-product-item" href="/products/{{this.Id}}">
+
+                                <div class="home-product-item__img" style="background-image: url({{this.thumbnail}});">
+                                </div>
+
+
+                                <h4 class="home-product-item__name">{{this.productname}}</h4>
+
+                                <div class="home-product-item__price">
+                                    <span class="home-product-item__price-old">{{this.oldprice}}₫</span>
+                                    <span class="home-product-item__price-new">{{this.price}}₫</span>
+                                </div>
+                                <div class="home-product-item__action">
+                                    <span class="home-product-item__like home-product-item__like--liked">
+                                        <i class="home-product-item__like-icon-empty fa-regular fa-heart"></i>
+                                        <i class="home-product-item__like-icon-fill fa-solid fa-heart"></i>
+                                    </span>
+                                    <div class="home-product-item__rating">
+                                        <i class="home-product-item__star-gold fa-solid fa-star"></i>
+                                        <i class="home-product-item__star-gold fa-solid fa-star"></i>
+                                        <i class="home-product-item__star-gold fa-solid fa-star"></i>
+                                        <i class="home-product-item__star-gold fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="home-product-item__sold">{{this.ratingvalue}} Đánh giá</span>
+                                </div>
+                                <div class="home-product-item__origin">
+                                    <span class="home-product-item__brand">{{this.sellername}}</span>
+                                    <span class="home-product-item__origin-name">Việt Nam</span>
+                                </div>
+                                <div class="home-product-item__favourite">
+                                    <i class="fa-solid fa-check"></i> Yêu Thích
+                                </div>
+                                <div class="home-product-item__sale-off">
+                                    <span class="home-product-item__sale-off-percent">{{this.discount}}%</span>
+                                    <span class="home-product-item__sale-off-label">GIẢM</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        {{/each}}
+
+
+                    </div>
+                </div>
+
+                <ul class="pagination home-product__pagination">
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            <i class="pageination-item__icon fa-solid fa-angle-left"></i>
+                        </a>
+                    </li>
+
+                    <li class="pagination-item pagination-item--active">
+                        <a href="" class="pagination-item__link">
+                            1
+                        </a>
+                    </li>
+
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            2
+                        </a>
+                    </li>
+
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            3
+                        </a>
+                    </li>
+
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            4
+                        </a>
+                    </li>
+
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            5
+                        </a>
+                    </li>
+
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            ...
+                        </a>
+                    </li>
+
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            14
+                        </a>
+                    </li>
+
+
+
+                    <li class="pagination-item">
+                        <a href="" class="pagination-item__link">
+                            <i class="pageination-item__icon fa-solid fa-angle-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+    import { getAuth,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+     const firebaseConfig = {
+        apiKey: "AIzaSyBUXegiu1MsuNdYB8mM9nbcmxmIOvbExoc",
+        authDomain: "buyandsellproject-753ab.firebaseapp.com",
+        databaseURL: "https://buyandsellproject-753ab-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "buyandsellproject-753ab",
+        storageBucket: "buyandsellproject-753ab.appspot.com",
+        messagingSenderId: "830096715156",
+        appId: "1:830096715156:web:13deb2fdd9edd4f24b3381",
+        measurementId: "G-CV563YDE2P"
+    };
+
+
+  const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+    function abc()
+    { 
+        onAuthStateChanged(auth, (user) => {
+  if (user) {
+    
+    const uid = user.uid;
+    console.log("user còn đăng nhập")
+  } else {
+    console.log("hết")
+  }
+});
+    
+    }
+    window.onload=abc()
+</script>

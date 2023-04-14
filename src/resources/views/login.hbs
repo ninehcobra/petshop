@@ -1,0 +1,61 @@
+ <header  class="header">
+   <link rel="stylesheet" href="../css/app.css">
+   
+            <div class="grid">
+                
+                <!-- header search -->
+                <div  class="header-with-search ">
+                    <div class="header__logo login-header">
+                        <a href="/" class="header__logo-link">
+                            <img src="../image/logo.png" alt="" class="header__logo-img">
+                        </a>
+                        <div class="title__login-page">Đăng Nhập</div>
+                    </div>
+                </div>  
+
+
+
+            </div>
+        </header>
+
+<div class="app__container auth__container" >
+    
+    <form class="auth-form login_page-form"method="POST" action="/login/auth" >
+                <div class="auth-form__container" >
+                    
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">
+                            Đăng nhập
+                        </h3>
+                        <a href="/register">
+                         <span class="auth-form__switch-btn">Đăng ký</span>
+                    </a>
+                       
+                    </div>
+
+                    
+                        <div class="auth-form__group">
+                            <input id="email" name="email" type="email" class="auth-form__input" placeholder="Email của bạn">
+                        </div>
+                        <div class="auth-form__group">
+                            <input id="password" name="password" type="password" class="auth-form__input" placeholder="Mật khẩu của bạn">
+                        </div>
+
+                    <div class="auth-form__aside">
+                        <div class="auth-form__help">
+                            <a href="" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
+                            <span class="auth-form__help-separate"></span>
+                            <a href="" class="auth-form__help-link ">Cần trợ giúp?</a>
+                        </div>
+                    </div>
+
+                    <div class="auth-form__controls">
+                       
+                        <button type="submit" class="btn btn--primary btn__login ">ĐĂNG NHẬP</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form> 
+</div>

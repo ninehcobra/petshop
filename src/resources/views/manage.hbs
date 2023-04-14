@@ -1,0 +1,30 @@
+<button  id="submitdata" class="btn"></button>
+
+<script type="module">
+   
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getFirestore ,doc,updateDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+const firebaseConfig = {
+        apiKey: "AIzaSyBUXegiu1MsuNdYB8mM9nbcmxmIOvbExoc",
+        authDomain: "buyandsellproject-753ab.firebaseapp.com",
+        databaseURL: "https://buyandsellproject-753ab-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "buyandsellproject-753ab",
+        storageBucket: "buyandsellproject-753ab.appspot.com",
+        messagingSenderId: "830096715156",
+        appId: "1:830096715156:web:13deb2fdd9edd4f24b3381",
+        measurementId: "G-CV563YDE2P"
+    };
+
+
+   submitdata.addEventListener('click',(e)=>{
+    const app = initializeApp(firebaseConfig);
+    const db=getFirestore(app)
+
+    updateDoc(doc(db,"Users","LRm1FQNE508Zwfg4FiX0"),{
+fullname: 'Trương Nguyễn Công Chính'
+    })
+    console.log("update thanh cong")
+    
+   })
+</script>

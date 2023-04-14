@@ -1,0 +1,34 @@
+{
+  "name": "bus_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/src",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss --output src/public/css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ninehcobra/Ecommerce-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ninehcobra/Ecommerce-web/issues"
+  },
+  "homepage": "https://github.com/ninehcobra/Ecommerce-web#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.7",
+    "firebase": "^9.16.0",
+    "firebaseui": "^6.0.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "mongoose": "^6.9.0",
+    "morgan": "^1.10.0",
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.3"
+  }
+}

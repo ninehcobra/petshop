@@ -1,0 +1,156 @@
+<header class="header">
+    <link rel="stylesheet" href="../css/app.css">
+
+    <div class="grid">
+
+        <!-- header search -->
+        <div class="header-with-search ">
+            <div class="header__logo login-header">
+                <a href="/" class="header__logo-link">
+                    <img src="../image/logo.png" alt="" class="header__logo-img">
+                </a>
+                <div class="title__login-page">Đăng Ký</div>
+            </div>
+        </div>
+
+
+
+    </div>
+</header>
+
+<div class="app__container auth__container">
+
+    <form class="auth-form login_page-form" action="/home" method="POST" id="form-1">
+        <div class="auth-form__container">
+
+            <div class="auth-form__header">
+                <h3 class="auth-form__heading">
+                    Đăng ký
+                </h3>
+                <a href="/login">
+                    <span class="auth-form__switch-btn">Đăng nhập</span>
+                </a>
+
+            </div>
+
+
+            <div class="auth-form__group">
+                <input id="email" name="email" type="text" class="auth-form__input" placeholder="Email của bạn">
+                <span class="form-message"></span>
+            </div>
+            <div class="auth-form__group">
+                <input id="password" name="password" type="password" class="auth-form__input"
+                    placeholder="Mật khẩu của bạn">
+                <span class="form-message"></span>
+            </div>
+            <div class="auth-form__group">
+                <input id="passwordrepeat" name="passwordrepeat" type="password" class="auth-form__input"
+                    placeholder="Nhập lại mật khẩu của bạn">
+                <span class="form-message"></span>
+            </div>
+            <div class="auth-form__group">
+                <input id="phonenumber" name="phonenumber" type="text" class="auth-form__input"
+                    placeholder="Số điện thoại">
+                <span class="form-message"></span>
+            </div>
+            <div class="auth-form__group">
+                <input id="fullname" name="fullname" type="text" class="auth-form__input" placeholder="Tên đầy đủ">
+                <span class="form-message"></span>
+            </div>
+
+            <div class="auth-form__aside">
+                <div class="auth-form__help">
+                    <a href="/login" class="auth-form__help-link auth-form__help-forgot">Đã có tài khoản ?</a>
+                    <span class="auth-form__help-separate"></span>
+                    <a href="" class="auth-form__help-link ">Cần trợ giúp?</a>
+                </div>
+            </div>
+
+            <div class="auth-form__controls">
+                <a href="/login" class="btn auth-form__controls-back btn--normal">
+                    <div style="margin-top: 10px;">TRỞ LẠI</div>
+                </a>
+                <button class="btn btn--primary btn__login ">ĐĂNG KÝ</button>
+            </div>
+        </div>
+
+</div>
+</div>
+</form>
+
+</div>
+
+<script src="./js/validator.js"></script>
+
+<script type="module">
+
+
+
+
+</script>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBUXegiu1MsuNdYB8mM9nbcmxmIOvbExoc",
+        authDomain: "buyandsellproject-753ab.firebaseapp.com",
+        databaseURL: "https://buyandsellproject-753ab-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "buyandsellproject-753ab",
+        storageBucket: "buyandsellproject-753ab.appspot.com",
+        messagingSenderId: "830096715156",
+        appId: "1:830096715156:web:13deb2fdd9edd4f24b3381",
+        measurementId: "G-CV563YDE2P"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+
+
+    Validator(
+        {
+            errorSelector: '.form-message',
+            form: '#form-1',
+            rules: [
+                Validator.isRequired('#fullname'),
+                Validator.isEmail('#email'),
+                Validator.isPhonenumber('#phonenumber'),
+                Validator.minLength('#password', 6),
+                Validator.isConfirmed('#passwordrepeat', function () {
+                    return document.querySelector('#form-1 #password').value
+                })
+            ],
+            onSubmit: function (data) {
+                console.log(data.email);
+                createUserWithEmailAndPassword(auth, data.email, data.password)
+                    .then((userCredential) => {
+                        // Signed in 
+                        const user = userCredential.user;
+                        alert("Tạo tài khoản thành công")
+                        // ...
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        alert(errorMessage)
+                        // ..
+                    });
+
+
+            }
+        }
+    )
+
+</script>
+
+
+
+{{!-- modal --}}
+<!-- Button trigger modal -->
+
+<!-- Modal -->

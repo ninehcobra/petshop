@@ -1,0 +1,281 @@
+<div class="app__container">
+    <div class="grid">
+
+        <div class="breadcrumb__header">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item breadcrumb_font"><a href="/">Trang chủ</a></li>
+                    <li class="breadcrumb-item breadcrumb_font"><a href="/">Sản phẩm</a></li>
+                    <li class="breadcrumb-item active breadcrumb_font" aria-current="page">{{this.data.productname}}
+                    
+                    </li>
+                    <input style="    margin-left: 1740px;" disabled id="productid" value="{{this.data.id}}"></input>
+                    <input style="    margin-left: 1740px;" disabled id="productquantity" value="{{this.data.maxQuantity}}"></input>
+                </ol>
+            </nav>
+        </div>
+        <div class="grid__row app_content product_content">
+
+            <div class="grid__column-4">
+                <div class="products__image">
+                    <div class="products__image-main">
+                        <img src="{{this.data.thumbnail}}" alt="" class="image-main" id="image_show">
+
+                    </div>
+                    <div class="products__image-ref">
+                        {{#each this.data.images}}
+                        <div onmouseover="changeImg({{this}})" class="products__image-ref-item" >
+                            <div  class="products__image-ref-item-style"
+                                style="background-image: url({{this}}); background-size: contain; background-repeat: no-repeat;">
+                            </div >
+
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid__column-6 ">
+                <div class="grid__column-6-products">
+                    <div class="products__info">
+                        <div class="products__name">
+                            <span class="">{{this.data.productname}}</span>
+                        </div>
+                    </div>
+
+                    <div class="product__box-rating">
+                        <div class="star__rating-box">
+                            <div class="rating__number">5.0</div>
+                            <div class="boxrating-star">
+                                <div class="home-product-item__rating star__style">
+                                    <i class="home-product-item__star-gold rating__star fa-solid fa-star"></i>
+                                    <i class="home-product-item__star-gold rating__star fa-solid fa-star"></i>
+                                    <i class="home-product-item__star-gold rating__star fa-solid fa-star"></i>
+                                    <i class="home-product-item__star-gold rating__star fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="star__rating-box">
+                            <div class="value__number">{{this.data.feedbacks.length}}</div>
+                            <div class="box__title">Đánh giá</div>
+
+                        </div>
+
+                        <div class="star__rating-box">
+                            <div class="value__number">10k</div>
+                            <div class="box__title">Đã bán</div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="price__box">
+                    <div class="price__box-item">
+                        <div class="old__price__value">{{this.data.oldprice}}₫</div>
+                        <div class="price__value">{{this.data.price}}₫</div>
+                        <div class="discount__box">{{this.data.discount}}% giảm</div>
+
+                    </div>
+                </div>
+
+                <div class="description__box">
+                    <div class="description__box-container">
+                        <div class="title__des">
+                            CHI TIẾT SẢN PHẨM
+                        </div>
+                    </div>
+
+                    <div class="description__box-container">
+                        <div class="description__content">
+                            {{this.data.description}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input_box">
+                    <div class="input_box_1">
+                        <div class="input_box_1_1">
+                            <div class="input_box_title">Số lượng</div>
+                            <div class="input_box_1_1_1">
+                                <div style="margin-right: 15px;">
+                                    <div class="input_box_1_1_1_1">
+                                        <button id="deCre" class="input_box_eq">
+                                            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
+                                                class="input_box_icon">
+                                                <polygon
+                                                    points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
+                                                </polygon>
+                                            </svg>
+                                        </button>
+                                        <input class="input_box_eq input_box_eq2" type="text" role="spinbutton"
+                                            aria-valuenow="{{this.data.maxQuantity}}" value="1" id="inc">
+                                        <button savedata="okla" id="inCre"  class="input_box_eq">
+                                            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
+                                                class="input_box_icon icon-plus-sign">
+                                                <polygon
+                                                    points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
+
+                                                </polygon>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="number_value">{{this.data.maxQuantity}} sản phẩm có sẵn</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <div class="buy__button_container">
+                        <button id="addToCart" class="btn btn--primary btn--buy">
+                            <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ hàng
+                        </button>
+                        <button id="buynow"   class="btn btn--primary">Mua ngay</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="page-product__content">
+            <div class="page-product__shop">
+                <div class="page-product__info">
+                    <img class="page-product__avatar" src="{{this.data.avatar}}" alt="">
+
+                    <div class="page-product__name">
+                        <div class="shop__name">{{this.data.shopname}}</div>
+                        <div class="TaEoi4">
+                            <div class="zSXxlI">SDT: {{this.data.phonenumber}}</div>
+                        </div>
+                        <div class="btn__box">
+
+                            <a href="">
+
+
+                                <button class="btn btn--primary btn--connect"><i
+                                        class="fa-regular fa-envelope icon-contact"></i>Liên hệ</button>
+
+                                <a href="/shops/{{this.data.sellerID}}">
+
+                                    <button class="btn btn--primary btn--show_shop"> <i class="fa-solid fa-shop"></i>
+                                        Xem Shop</button>
+                                </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        <div class="page-product__content">
+            <div class="page-product__shop-com">
+                <div class="title_comment">ĐÁNH GIÁ SẢN PHẨM</div>
+                {{#each this.data.feedbacks}}
+                <div class="comment-rating">
+                    <div class="">
+                        <img src="https://cdn.pixabay.com/photo/2016/03/31/14/47/avatar-1292817_960_720.png"
+                            class="img_comment">
+                        <div class="txt_comment">{{this.name}}</div>
+                    </div>
+                    <div class="comment_box">
+
+                        <div class="rating">Đánh giá: {{this.rating}} </div>
+                        <i class="fa-solid fa-star comment-icon"></i>
+
+
+                        <div class="label-comment">Bình luận: </div>
+                        <div class="comment_content">{{this.comment}}</div>
+
+                    </div>
+
+
+                </div>
+                {{/each}}
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+ <script type="module">
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import { getFirestore ,doc,updateDoc,addDoc} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+const firebaseConfig = {
+        apiKey: "AIzaSyBUXegiu1MsuNdYB8mM9nbcmxmIOvbExoc",
+        authDomain: "buyandsellproject-753ab.firebaseapp.com",
+        databaseURL: "https://buyandsellproject-753ab-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "buyandsellproject-753ab",
+        storageBucket: "buyandsellproject-753ab.appspot.com",
+        messagingSenderId: "830096715156",
+        appId: "1:830096715156:web:13deb2fdd9edd4f24b3381",
+        measurementId: "G-CV563YDE2P"
+    };
+
+    deCre.addEventListener('click',(e)=>{
+        var value = parseInt(document.getElementById('inc').value)
+            value--;
+            if (value <= 0) { value = 1 }
+            document.getElementById('inc').value = value
+   })
+
+   inCre.addEventListener('click',(e)=>{
+         var value = parseInt(document.getElementById('inc').value)
+            value++;
+            document.getElementById('inc').value = value
+   })
+
+   addToCart.addEventListener('click',(e)=>{
+       var id=document.getElementById('productid').value
+        var currentquantity=document.getElementById('productquantity').value
+        var buyquantity=document.getElementById('inc').value
+        var currentdate = new Date();
+        var datetime = currentdate.getDay() + "/" + currentdate.getMonth() 
++ "/" + currentdate.getFullYear() + " @ " 
++ currentdate.getHours() + ":" 
++ currentdate.getMinutes() + ":" + currentdate.getSeconds();
+
+        const app = initializeApp(firebaseConfig);
+    const db=getFirestore(app)
+
+    updateDoc(doc(db,"Products",id),{
+      maxQuantity:(currentquantity-buyquantity)
+    })
+     updateDoc(doc(db,"Users","LRm1FQNE508Zwfg4FiX0"),{
+      shoppingCart: {
+        option: "",
+        ownID: datetime,
+        productid:id,
+        quantity:buyquantity,
+      }
+    })
+    alert("Thêm vào giỏ hàng thành công")
+   })
+
+
+
+</script>
+
+<script>
+      function changeImg(imglink) {
+            document.getElementById('image_show').src = imglink;
+        }
+</script>

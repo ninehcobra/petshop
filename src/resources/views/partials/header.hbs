@@ -1,0 +1,279 @@
+ 
+ <script type="module">
+const firebaseConfig = {
+    apiKey: "AIzaSyBUXegiu1MsuNdYB8mM9nbcmxmIOvbExoc",
+    authDomain: "buyandsellproject-753ab.firebaseapp.com",
+    databaseURL: "https://buyandsellproject-753ab-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "buyandsellproject-753ab",
+    storageBucket: "buyandsellproject-753ab.appspot.com",
+    messagingSenderId: "830096715156",
+    appId: "1:830096715156:web:13deb2fdd9edd4f24b3381",
+    measurementId: "G-CV563YDE2P"
+
+};
+
+
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+   import {collection, addDoc, getDocs, doc, setDoc, query, where, getDoc, getFirestore } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+   const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+
+              
+    async function abc(){
+          const docRef = doc(db, "Users", 'LRm1FQNE508Zwfg4FiX0');
+                const docSnap = await getDoc(docRef);
+       document.getElementById("fullname").innerText=docSnap.data().fullname
+       document.getElementById("avatar_user").src=docSnap.data().avatar
+       document.getElementById("link_user").href=("/users/LRm1FQNE508Zwfg4FiX0")
+       document.getElementById("link_manage").href=("/manage/LRm1FQNE508Zwfg4FiX0")
+       document.getElementById("link_cart").href=("/cart/LRm1FQNE508Zwfg4FiX0")
+    }
+    window.onload=abc()
+
+
+
+
+</script>
+ <header  class="header">
+   <link rel="stylesheet" href="../css/app.css">
+   
+            <div class="grid">
+                <nav class="header__navbar">
+                    <ul class="header__navbar-list ">
+                        <li class="header__navbar-item header__navbar-item--separate header__navbar-item-modify-qr">
+                            Vào cửa hàng trên ứng dụng BAS
+                            <div class="header__qr">
+                                <img src="https://eaes.eu/wp-content/uploads/2017/05/QR-code-Google-Play-store.png" alt="QR code" class="header__qr-img">
+                                <div class="header__qr-apps">
+                                    <a href="https://www.apple.com/app-store/" class="header__qr-link">
+                                        <img src="https://cdn.kibrispdr.org/data/671/iphone-app-store-logo-png-28.png" alt="AppStore"
+                                            class="header__qr-download-img ">
+                                    </a>
+                                    <a href="https://play.google.com/" class="header__qr-link">
+                                        <img src="https://play.google.com/about/howplayworks/static/assets/social/share_google_play_logo.png" alt="GooglePlay"
+                                            class="header__qr-download-img">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header__navbar-item">
+                            <span class="header__navbar-title--no-pointer">Kết nối</span>
+                            <a href="https://www.facebook.com/" class="header__navbar-icon-link">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" class="header__connect-img"></img>
+                            </a>
+                            <a href="https://www.instagram.com/" class="header__navbar-icon-link">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" class="header__connect-img"></img>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="header__navbar-list">
+                        <li class="header__navbar-item header__navbar-item--has-notify">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon fa-solid fa-bell"></i>
+                                Thông báo
+                            </a>
+                            <div class="header__notify">
+                                <header class="header__notify-header">
+                                    <h3>Thông Báo Mới Nhận</h3>
+                                </header>
+                                <ul class="header__notify-list">
+                                    <li class="header__notify-item header__notify-item--viewed">
+                                        <a href="" class="header__notify-link">
+                                            <img src="https://monaliza.com.my/wp-content/uploads/2020/10/Logitech-G102-LIGHTSYNC_.png"
+                                                alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Chuột chơi game, chuột máy tính có dây
+                                                    LOGITECH G102 RBG</span>
+                                                <span class="header__notify-description">Cần giao gấp call ngay
+                                                    0373489868 giá chỉ 400k</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="header__notify-item">
+                                        <a href="" class="header__notify-link">
+                                            <img src="https://cf.shopee.vn/file/74faed82d6194379b711438358fe1fa8" alt=""
+                                                class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">Bàn phím cơ gaming ek361W chính
+                                                    hãng</span>
+                                                <span class="header__notify-description">EK361W là bàn phím cơ không dây
+                                                    bluetooth 4.0 cho kết nối tối đa 3 thiết bị</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="header__notify-item">
+                                        <a href="" class="header__notify-link">
+                                            <img src="https://static.android.com.pl/uploads/2021/06/Purple-iPhone-12-Pro-Max-2048x2048.jpeg"
+                                                alt="" class="header__notify-img">
+                                            <div class="header__notify-info">
+                                                <span class="header__notify-name">14 Pro max |14 Plus</span>
+                                                <span class="header__notify-description">iPhone 14. Một nâng cấp hệ
+                                                    thống camera chuyên nghiệp hoành tráng chưa từng có. Màn hình
+                                                    SuperRetina XDR với ProMotion cho cảm giác nhanh nhạy hơn.</span>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <footer class="header__notify-footer">
+                                    <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                                </footer>
+                            </div>
+                        </li>
+                        <li class="header__navbar-item">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon fa-regular fa-circle-question"></i>
+                                Trợ giúp
+                            </a>
+                        </li>
+                        <!-- <li class="header__navbar-item header__navbar-item--strong header__navbar-item--separate ">Đăng
+                            ký</li>
+                        <li class="header__navbar-item header__navbar-item--strong ">Đăng nhập</li> -->
+                        <li class="header__navbar-item header__navbar-user">
+                            <img id="avatar_user" src="" alt=""
+                                class="header__navbar-avatar">
+                            <span id="fullname" class="header__navbar-user-name"></span>
+                            <ul class="header__navbar-user-menu">
+                                <li  class="header__navbar-user-item"><a id="link_user"  class="text_link">Tài khoản của tôi</a></li>
+                                <li class="header__navbar-user-item"><a id="link_manage"  class="text_link">Quản lý mặt hàng</a></li>
+                                <li class="header__navbar-user-item"><a id="link_cart" class="text_link">Đơn mua</a></li>
+                                <li class="header__navbar-user-item header__navbar-user-item-seperate"><a href="/"
+                                        class="">Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- header search -->
+                <div class="header-with-search">
+                    <div class="header__logo">
+                        <a href="/home" class="header__logo-link">
+                            <img src="../image/logo.png" alt="" class="header__logo-img">
+                        </a>
+                    </div>
+                    <div class="header__search">
+                        <div class="header__search-input-wrap">
+                            <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
+                            <!-- Search history -->
+                            <div class="header__search-history">
+                                <h3 class="header__search-history-heading">Lịch sử tìm kiếm</h3>
+                                <ul class="header__search-history-list">
+                                    <li class="header__search-history-item"> <a href="" class="">Bàn phím cơ</a> </li>
+                                    <li class="header__search-history-item"> <a href="" class="">Chuột siêu ngon</a>
+                                    </li>
+                                    <li class="header__search-history-item"> <a href="" class="">Tai nghe khủng
+                                            khiếp</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <div class="header__search-select">
+                            <span class="header__search-select-label">Trong shop</span>
+                            <i class="header__search-select-icon fa-solid fa-chevron-down"></i>
+
+                            <ul class="header__search-option">
+                                <li class="header__search-option-item header__search-option-item--active">
+                                    <span>Trong shop</span>
+                                    <i class="fa-solid fa-check"></i>
+                                </li>
+
+                                <li class="header__search-option-item ">
+                                    <span>Ngoài shop</span>
+                                    <i class="fa-solid fa-check"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <button class="header__search-btn">
+                            <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+                        </button>
+
+                    </div>
+                    <!-- Cart layout -->
+                    <div class="header__cart">
+
+                        <div class="header__cart-wrap">
+                            <img class="header__cart-icon" src="../image/shopping-cart.png" alt="">
+                            <span class="header_cart-notice">3</span>
+                            <!--No cart:Header__cart-list-no-cart -->
+                            <div class="header__cart-list">
+                                <img src="../image/no_cart.png" alt="" class="header__cart-list--no-cart-img">
+                                <span class="header__cart-list-message-no-cart">Chưa có sản phẩm</span>
+
+                                <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                                <ul class="header__cart-list-item">
+                                    <!-- cart item -->
+                                    <li class="header__cart-item">
+                                        <img src="https://monaliza.com.my/wp-content/uploads/2020/10/Logitech-G102-LIGHTSYNC_.png"
+                                            alt="" class="header__cart-img">
+                                        <div class="header__cart-item-info">
+                                            <div class="header__cart-item-head">
+                                                <h5 class="header__cart-item-name">Chuột gaming</h5>
+                                                <div class="header__cart-item-price-wrap">
+                                                    <span class="header__cart-item-price">1.275.000đ</span>
+                                                    <span class="header__cart-item-multi"> x </span>
+                                                    <span class="header__cart-item-qnt">2</span>
+                                                </div>
+                                            </div>
+                                            <div class="header__cart-item-body">
+                                                <span class="header__cart-item-desciption">
+                                                    Phân loại: Đen
+                                                </span>
+                                                <span class="header__cart-item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="header__cart-item">
+                                        <img src="https://laptop8993.com/wp-content/uploads/2022/03/Newmen-GE87-GE87-RGB.jpg"
+                                            alt="" class="header__cart-img">
+                                        <div class="header__cart-item-info">
+                                            <div class="header__cart-item-head">
+                                                <h5 class="header__cart-item-name">Bàn phím cơ led RGB</h5>
+                                                <div class="header__cart-item-price-wrap">
+                                                    <span class="header__cart-item-price">550.000đ</span>
+                                                    <span class="header__cart-item-multi"> x </span>
+                                                    <span class="header__cart-item-qnt">1</span>
+                                                </div>
+                                            </div>
+                                            <div class="header__cart-item-body">
+                                                <span class="header__cart-item-desciption">
+                                                    Phân loại: Đen
+                                                </span>
+                                                <span class="header__cart-item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="header__cart-item">
+                                        <img src="https://lagihitech.vn/wp-content/uploads/2022/07/Tai-Nghe-PRO-Gaming-Headset-Oculus-Quest-2-hinh-3.jpg"
+                                            alt="" class="header__cart-img">
+                                        <div class="header__cart-item-info">
+                                            <div class="header__cart-item-head">
+                                                <h5 class="header__cart-item-name">Tai nghe chùm</h5>
+                                                <div class="header__cart-item-price-wrap">
+                                                    <span class="header__cart-item-price">2.500.000đ</span>
+                                                    <span class="header__cart-item-multi"> x </span>
+                                                    <span class="header__cart-item-qnt">1</span>
+                                                </div>
+                                            </div>
+                                            <div class="header__cart-item-body">
+                                                <span class="header__cart-item-desciption">
+                                                    Phân loại: Đen nhám
+                                                </span>
+                                                <span class="header__cart-item-remove">Xóa</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a href="" class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a href="">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </header>
